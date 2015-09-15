@@ -1,0 +1,11 @@
+// import default theme form the vue-components including mixins
+@import '../node_modules/vuestrap/themes/default';
+
+// import normalize form the vue-components
+@import '../node_modules/vuestrap/core/normalize/_all';
+
+// import utilities
+@import '../node_modules/vuestrap/core/utilities/_all';
+
+// import app specific style configuration, i.e. brand and theme colors and override default theme if needed
+@import 'custom-theme';

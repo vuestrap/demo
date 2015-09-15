@@ -1,0 +1,36 @@
+{
+  "name": "vuestrap-starter",
+  "version": "0.1.0",
+  "description": "An html seed with sample components",
+  "main": "index.html",
+  "scripts": {
+    "dev": "webpack-dev-server --port 8081"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gritcode/vuestrap-starter.git"
+  },
+  "keywords": [
+    "Bootstrap 4",
+    "Web",
+    "Components",
+    "Polymer"
+  ],
+  "author": "Kris Zima <kris@mosquito.ie> (https://github.com/kzima)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gritcode/vuestrap-starter/issues"
+  },
+  "homepage": "https://github.com/gritcode/vuestrap-starter#readme",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "css-loader": "^0.9.0",
+    "node-sass": "^3.3.2",
+    "sass-loader": "^2.0.1",
+    "vue": "^0.12.14",
+    "vuestrap": "^0.1.0",
+    "vuestrap-theme-loader": "^0.1.1",
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1"
+  }
+}

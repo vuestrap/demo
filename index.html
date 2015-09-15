@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="http://localhost:8081/webpack-dev-server.js"></script>
+</head>
+
+<!-- main vue app -->
+<body id="app">
+	<div class="controls">
+		<label for="dismissible">show</label>
+		<input id="dismissible" type="checkbox" v-model="alert.show">
+		<label for="dismissible">dismissible</label>
+		<input id="dismissible" type="checkbox" v-model="alert.dismissible">
+		<select options="alert.types" v-model="alert.type"></select>
+	</div>
+	<alert show="{{@alert.show}}" type="{{alert.type}}" message="<strong>Note</strong> You can use html here" dismissible="{{alert.dismissible}}"></alert>
+	<script src="build/build.js"></script>
+</body>
+
+</html>
