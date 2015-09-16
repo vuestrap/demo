@@ -25,20 +25,45 @@ window.onload=function(){
       buttonRadio: {
         model: 'second',
         list: [{name: 'First', value: 'first'}, {name: 'Second', value: 'second'}, {name: 'Third', value: 'third'}] 
+      },
+      card: {
+        header: true, 
+        footer: true,
+        list: true,
+        links: true,
+        body: true,
+        type: 'standard',
+        types: ['standard', 'inverse', 'image-overlay'],
+        variant: 'standard',
+        variants: ['standard', 'primary', 'success', 'info', 'warning', 'danger']
       }
     },
     components: {
-      'alert': require('bootstrap/_alert.js'),
-      'breadcrumb': require('bootstrap/_breadcrumb.js'),
-      'button-checkbox': require('bootstrap/_button-checkbox.js'),
-      'button-radio': require('bootstrap/_button-radio.js'),
-      'button-group': require('bootstrap/_button-group.js'),
-      'card': require('bootstrap/_card.js')
+      'alert': require('bootstrap/alert.js'),
+      'breadcrumb': require('bootstrap/breadcrumb.js'),
+      'button-checkbox': require('bootstrap/button-checkbox.js'),
+      'button-radio': require('bootstrap/button-radio.js'),
+      'button-group': require('bootstrap/button-group.js'),
+      'card': require('bootstrap/card.js')
     },
     events: {
     	'dismiss::alert': function(){
     		alert('dismissed');
     	}
+    }, 
+    watch: {
+      'card.type': function(val){
+        if (val === 'image-overlay') {
+          this.card.header = false;
+          this.card.footer = false;
+        }
+      },
+      'card.variant': function(val){
+        if (val !== 'standard') {
+          this.card.header = false;
+          this.card.footer = false;
+        }
+      }
     }
   });
 };
