@@ -8,14 +8,53 @@
 
 <!-- main vue app -->
 <body id="app">
-	<div class="controls">
-		<label for="dismissible">show</label>
-		<input id="dismissible" type="checkbox" v-model="alert.show">
-		<label for="dismissible">dismissible</label>
-		<input id="dismissible" type="checkbox" v-model="alert.dismissible">
-		<select options="alert.types" v-model="alert.type"></select>
-	</div>
-	<alert show="{{@alert.show}}" type="{{alert.type}}" message="<strong>Note</strong> You can use html here" dismissible="{{alert.dismissible}}"></alert>
+	<!-- DEMO -->
+
+	<!-- breadcrumb -->
+	<card header="Breadcrumb">
+		<breadcrumb 
+	        list="{{ [{name: 'Home', href: '#'}, {name: 'Library', active: true}] }}">
+	    </breadcrumb>
+	</card>
+
+
+	<!-- alerts -->
+	<card header="Alerts">
+		<div class="controls">
+			<label for="dismissible">show</label>
+			<input id="dismissible" type="checkbox" v-model="alert.show">
+			<label for="dismissible">dismissible</label>
+			<input id="dismissible" type="checkbox" v-model="alert.dismissible">
+			<select options="alert.types" v-model="alert.type"></select>
+		</div>
+		<alert show="{{@alert.show}}" type="{{alert.type}}" message="<strong>Note</strong> You can use html here" dismissible="{{alert.dismissible}}"></alert>
+	</card>
+
+	<!-- button group -->
+	<card header="Button Group">
+		<div class="controls">
+			<label for="vertical">vertical</label>
+			<input id="vertical" type="checkbox" v-model="buttonGroup.vertical">
+		</div>
+		<button-group vertical="{{@ buttonGroup.vertical }}">
+		  <button type="button" class="btn btn-secondary">Left</button>
+		  <button type="button" class="btn btn-secondary">Middle</button>
+		  <button type="button" class="btn btn-secondary">Right</button>
+		</button-group>
+	</card>
+
+	<!-- button checkbox -->
+	<card header="Button Checkbox">
+		<p>items: {{ buttonCheckbox.list | json }}</p>
+		<button-checkbox list="{{@ buttonCheckbox.list }}"></button-checkbox>
+	</card>
+
+	<!-- button radio -->
+	<card header="Button Radio">
+		<p>selected item: {{ buttonRadio.model }}</p>
+		<button-radio list="{{ buttonRadio.list }}" model="{{@ buttonRadio.model }}"></button-radio>
+	</card>
+
 	<script src="build/build.js"></script>
 </body>
 

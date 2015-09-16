@@ -1,3 +1,4 @@
+var webpack = require("webpack");
 var path = require("path");
 var root = __dirname;
 
@@ -46,6 +47,13 @@ module.exports = {
             loader: "html"
         }]
     },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+    ],
     output: {
         filename: "build.js",
         path: path.join(root, appPaths.dist),

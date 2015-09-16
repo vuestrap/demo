@@ -9,3 +9,10 @@
 
 // import app specific style configuration, i.e. brand and theme colors and override default theme if needed
 @import 'custom-theme';
+
+body {
+	margin: 20px;
+}
+.card {
+	margin-bottom: 40px !important;
+}
