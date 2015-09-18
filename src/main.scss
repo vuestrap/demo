@@ -7,16 +7,53 @@
 // import utilities
 @import '../node_modules/vuestrap/core/utilities/_all';
 
+// import grid
+@import '../node_modules/vuestrap/core/grid/_bootstrap.scss';
+
 // import app specific style configuration, i.e. brand and theme colors and override default theme if needed
 @import 'custom-theme';
 
-body {
-	margin: 20px;
+.pageheader {
+	margin-bottom: 2em;
+	padding: 30px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+	background: #a90329; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+	h1 {
+		font-size: 4.5rem;
+		color: rgba(255,255,255,0.9);
+	}
+	p {
+		color: rgba(255,255,255,0.7);
+	}
 }
 .card {
-	margin-bottom: 40px !important;
+	margin-bottom: 2em !important;
 	&.card-inverse {
 	  background-color: #333; 
 	  border-color: #333;
 	}
+}
+
+.btn-custom {
+  background-color: hsl(36, 100%, 40%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffad32", endColorstr="#cc7a00");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffad32), to(#cc7a00));
+  background-image: -moz-linear-gradient(top, #ffad32, #cc7a00);
+  background-image: -ms-linear-gradient(top, #ffad32, #cc7a00);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffad32), color-stop(100%, #cc7a00));
+  background-image: -webkit-linear-gradient(top, #ffad32, #cc7a00);
+  background-image: -o-linear-gradient(top, #ffad32, #cc7a00);
+  background-image: linear-gradient(#ffad32, #cc7a00);
+  border-color: #cc7a00 #cc7a00 hsl(36, 100%, 35%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
 }
