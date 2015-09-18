@@ -15,4 +15,8 @@ body {
 }
 .card {
 	margin-bottom: 40px !important;
+	&.card-inverse {
+	  background-color: #333; 
+	  border-color: #333;
+	}
 }

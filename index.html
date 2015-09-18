@@ -64,14 +64,16 @@
 			<input id="card-footer" type="checkbox" v-model="card.footer">
 			<label for="card-list">List</label>
 			<input id="card-list" type="checkbox" v-model="card.list">
-			<label for="card-links">Links</label>
+			<label for="card-links">inks</label>
 			<input id="card-links" type="checkbox" v-model="card.links">
 			<label for="card-body">body</label>
 			<input id="card-body" type="checkbox" v-model="card.body">
 			<label for="card-type">Type</label>
 			<select id="card-type" options="card.types" v-model="card.type"></select>
-			<label for="card-variant">Variant</label>
+			<label for="card-variant">variant</label>
 			<select id="card-variant" options="card.variants" v-model="card.variant"></select>
+			<label for="card-align">align content</label>
+			<select id="card-align" options="card.aligns" v-model="card.align"></select>
 		</div>
 		<card 
 			header="{{ card.header ? 'Featured' : ''}}"
@@ -82,7 +84,7 @@
 			links="{{ card.links ? [{name: 'Card link', href: '#'}, {name: 'Another link', href: '#'}] : [] }}"
 			list="{{ card.list ? [{text: 'Cras justo odio', link: '#'}, {text: 'Dapibus ac facilisis in', link:'#'}] : [] }}"
 			footer="{{ card.footer ? 'Footer' : '' }}"
-			align="left"
+			align="{{ card.align }}"
 			type="{{ card.type }}"
 			variant="{{ card.variant }}"
 			style="width: 350px">
@@ -95,7 +97,133 @@
 		</card>
 	</card>
 
+	<!-- Dropdown menu -->
+	<card header="Dropdown (menu)">
+		<div class="controlls">
+			<label for="dropdown-caret">caret</label>
+			<input id="dropdown-caret" type="checkbox" v-model="dropdown.caret">
+			<label for="dropdown-variant">variant</label>
+			<select id="dropdown-variant" options="dropdown.variants" v-model="dropdown.variant"></select>
+		</div>
+		<dropdown value="Action" variant="{{ dropdown.variant }}" caret="{{ dropdown.caret }}">
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="">Completed</a></li>
+				<li><a class="dropdown-item" href="">Pending</a></li>
+			</ul>
+  		</dropdown>
+	</card>
+
+	<!-- dropdown select -->
+	<card header="Dropdown Select">
+		<div class="controlls">
+			<label for="dropdownSelectcaret">caret</label>
+			<input id="dropdownSelectcaret" type="checkbox" v-model="dropdownSelect.caret">
+			<label for="dropdownSelectvariant">variant</label>
+			<select id="dropdownSelectvariant" options="dropdownSelect.variants" v-model="dropdownSelect.variant"></select>
+		</div>
+		<dropdown-select list="{{ dropdownSelect.list }}" model="{{@ dropdownSelect.model }}" variant="{{ dropdownSelect.variant }}" caret="{{ dropdownSelect.caret }}"></dropdown-select>
+	</card>
+
+	<!-- form input -->
+	<card header="Form Input">
+		<div class="controls">
+			<label for="form-input-stateIcon">State Icon</label>
+			<input id="form-input-stateIcon" type="checkbox" v-model="formInput.stateIcon">
+			<label for="form-input-state">State</label>
+			<select id="form-input-state" options="formInput.states" v-model="formInput.state"></select>
+		</div>
+		<form-input
+			id="form-input"
+			model="{{@ formInput.model }}"
+			type="text"
+			label="Example Label"
+			placeholder="Placeholder"
+			description="We'll never share your email with anyone else."
+			state="{{ formInput.state }}" 
+			state-icon="{{ formInput.stateIcon }}">
+		</form-input>
+		<p class="text-muted">Model: {{ formInput.model }}</p>
+	</card>
+
+	<!-- form select -->
+	<card header="Form select">
+		<div class="controls">
+			<label for="dropdown-multiple">multiple</label>
+			<input id="dropdown-multiple" type="checkbox" v-model="formSelect.multiple">
+			<label for="form-input-state">State</label>
+			<select id="form-input-state" options="formSelect.states" v-model="formSelect.state"></select>
+		</div>
+		<form-select
+			id="form-select"
+			model="{{@ formSelect.model }}"
+			options="{{ formSelect.options }}"
+			type="text"
+			label="Example Label"
+			default-option="{{ formSelect.default }}"
+			description="We'll never share your gender with anyone else."
+			state="{{ formSelect.state }}" 
+			multiple="{{ formSelect.multiple }}"
+		>
+		</form-select>
+		<p class="text-muted">Model: {{ formSelect.model }}</p>
+	</card>
+
+	<!-- form textarea -->
+	<card header="Form textarea">
+		<div class="controls">
+			<label for="form-textarea-state">State</label>
+			<select id="form-textarea-state" options="formTextarea.states" v-model="formTextarea.state"></select>
+		</div>
+		<form-textarea
+			id="formTextarea"
+			model="{{@ formTextarea.model }}"
+			type="text"
+			label="Example Label"
+			description="Extra textarea description."
+			state="{{ formTextarea.state }}" 
+			rows="2"
+		>
+		</form-textarea>
+		<p class="text-muted">Model: {{ formTextarea.model }}</p>
+	</card>
+
+	<!-- form checkbox -->
+	<card header="Form checkbox">
+		<div class="controls">
+			<label for="formCheckbox-vertical">vertical</label>
+			<input id="formCheckbox-vertical" type="checkbox" v-model="formCheckbox.vertical">
+			<label for="form-checkbox-state">State</label>
+			<select id="form-checkbox-state" options="formCheckbox.states" v-model="formCheckbox.state"></select>
+		</div>
+		<form-checkbox  
+			list="{{@ formCheckbox.list }}"
+			vertical="{{ formCheckbox.vertical }}"
+			state="{{ formCheckbox.state }}"
+		>
+		</form-checkbox>
+		<p class="text-muted">items: {{ formCheckbox.list | json }}</p>
+	</card>
+
+	<!-- form radio -->
+	<card header="Form radio">
+		<div class="controls">
+			<label for="formRadio-vertical">vertical</label>
+			<input id="formRadio-vertical" type="checkbox" v-model="formRadio.vertical">
+			<label for="form-radio-state">State</label>
+			<select id="form-radio-state" options="formRadio.states" v-model="formRadio.state"></select>
+		</div>
+		<form-radio  
+			model="{{@ formRadio.model }}"
+			list="{{ formRadio.list }}"
+			vertical="{{ formRadio.vertical }}"
+			state="{{ formRadio.state }}"
+		>
+		</form-radio>
+		<p class="text-muted">selected item: {{ formRadio.model }}</p>
+	</card>
+
 	<script src="build/build.js"></script>
 </body>
 
 </html>
+
